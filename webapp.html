@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flip a Coin</title>
+  <style>
+    body {
+      font-family: 'Trebuchet MS', sans-serif;
+      background: linear-gradient(135deg, #fceabb, #f8b500);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .coin {
+      font-size: 6rem;
+      margin: 30px;
+      transition: transform 0.5s ease;
+    }
+
+    .result {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Flip a Coin</h1>
+  <div class="coin" id="coin">🪙</div>
+  <div class="result" id="result">Click the button to flip!</div>
+  <button onclick="flipCoin()">Flip!</button>
+
+  <script>
+    function flipCoin() {
+      const coin = document.getElementById("coin");
+      const result = document.getElementById("result");
+      const flip = Math.random() < 0.5 ? "Heads" : "Tails";
+
+      // Animate the coin
+      coin.style.transform = "rotateY(360deg)";
+
+      setTimeout(() => {
+        coin.innerText = flip === "Heads" ? "🙂" : "🦅";
+        result.innerText = `You got ${flip}!`;
+        coin.style.transform = "rotateY(0deg)";
+      }, 500);
+    }
+  </script>
+
+</body>
+</html>
